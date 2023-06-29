@@ -1,0 +1,46 @@
+input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: auto;
+}
+.time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(73, 160, 99);
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    text-align: center;
+    margin: auto;
+    
+}
+.time1{
+    display: flex;
+  justify-content: center;
+  align-items: center;
+    background-color: rgb(207, 203, 205);
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    text-align: center;
+    margin: auto;
+    
+}
+.startcount{
+    
+  font-size: 30px;
+   color: blue;
+}
+.endcount{
+    font-size: 40px;
+   color: red;
+}
+input{ 
+    margin-bottom:20px ;
+}
+.show{
+    display: none;
+}
