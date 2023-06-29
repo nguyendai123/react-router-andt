@@ -2,7 +2,7 @@ import { CalculatorOutlined } from "@ant-design/icons";
 
 import { Menu } from "antd";
 import { useState } from "react";
-import { ChessBoard } from "./Chess/ChessBoard/ChessBoard";
+import Chess from "./Chess/Chess/Chess";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BoardNumber from "./Calculator/number/BoardNumber";
 import HelloWorld from "./HelloWorld/Hello";
@@ -32,9 +32,6 @@ const items = [
   },
 ];
 const App = () => {
-  const [count] = useState(4);
-  const [color1] = useState("black");
-  const [color2] = useState("white");
   const [current, setCurrent] = useState("time");
   const onClick = (e) => {
     console.log("click ", e);
@@ -61,7 +58,7 @@ const App = () => {
               <BoardNumber />
             </Route>
             <Route path="/chessboard">
-              <ChessBoard count={count} color1={color1} color2={color2} />
+              <Chess />
             </Route>
             <Route path="/minesweep">
               <Minesweep />
