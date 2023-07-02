@@ -1,14 +1,33 @@
-.table-sweep{
- border: 1px solid red;
- width:200px;
- height: 300px;
+* {
+  font-size: 30px;
 }
-.row{
- width: 100%;
- height: 20%;
+.table-sweep {
+  border: 1px solid red;
+  /* width:200px;
+ height: 300px; */
 }
-.col{
-width: 20%;
-height: 100%;
-cursor: pointer;
+.row {
+  width: 100%;
+  height: 40px;
+}
+.col {
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  background-color: gray;
+}
+.GameOver {
+  width: 20%;
+  height: 100%;
+  cursor: pointer;
+  background-color: red;
+}
+.display {
+  background-color: blue;
+}
+.boom {
+  background-color: red;
+}
+.zero {
+  background-color: aqua;
 }

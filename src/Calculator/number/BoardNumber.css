@@ -1,47 +1,48 @@
-.table-number{
-    width: 300px;
-    border-radius:25px;
-    margin: auto;
-    padding-top: 30px;
-}
-table, th {
-    margin: auto;
-    border-radius:25px;
-    border:1px solid black;
-  }
-  table{
-    border-radius:0 0 25px 25px;
-  }
-  th{
-    cursor: pointer;
-    width: 75px;
-    height:45px;
-    background-color: rgba(19, 56, 160, 0.842);
-  }
-.display{
-    height: 20px;
-    width: 300px;
-    border:1px solid black;
-    margin: auto;
-    padding-top: 30px;
-    background-color: #cfcbcb;
-    border: 2px solid;
-    padding: 10px;
-    border-radius: 25px 25px 0 0;
-}
-.result{
-    height: 20px;
-    width: 320px;
-    border:1px solid black;
-    margin: auto;
-    padding-top: 30px;
-    background-color: aquamarine;
-}
-.result1{
-  height: 50px;
-  border:1px solid black;
+.table-number {
+  width: 300px;
+  border-radius: 25px;
   margin: auto;
-  
+  padding-top: 30px;
+}
+table,
+th {
+  margin: auto;
+  border-radius: 25px;
+  border: 1px solid black;
+}
+table {
+  border-radius: 0 0 25px 25px;
+}
+th {
+  cursor: pointer;
+  width: 75px;
+  height: 45px;
+  background-color: rgba(19, 56, 160, 0.842);
+}
+.display {
+  height: 20px;
+  width: 300px;
+  border: 1px solid black;
+  margin: auto;
+  padding-top: 30px;
+  background-color: #cfcbcb;
+  border: 2px solid;
+  padding: 10px;
+  border-radius: 25px 25px 0 0;
+}
+.result {
+  height: 20px;
+  width: 320px;
+  border: 1px solid black;
+  margin: auto;
+  padding-top: 30px;
+  background-color: aquamarine;
+}
+.result1 {
+  height: 50px;
+  border: 1px solid black;
+  margin: auto;
+
   display: flex;
   justify-content: flex-end;
   align-items: center;
@@ -50,11 +51,10 @@ table, th {
   color: aqua;
   font-weight: 700;
 }
-th:active {  
-  background-color: #58257b; 
-   box-shadow: 0 5px #666; 
-  
-  }
-  .cong{
-    background-color: red;
-  }
+th:active {
+  background-color: #58257b;
+  box-shadow: 0 5px #666;
+}
+.cong {
+  background-color: red;
+}
