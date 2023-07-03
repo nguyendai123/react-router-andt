@@ -2,7 +2,7 @@
   width: 300px;
   border-radius: 25px;
   margin: auto;
-  padding-top: 30px;
+  padding: 30px;
 }
 table,
 th {
@@ -12,6 +12,7 @@ th {
 }
 table {
   border-radius: 0 0 25px 25px;
+  width: 321px;
 }
 th {
   cursor: pointer;
@@ -21,7 +22,7 @@ th {
 }
 .display {
   height: 20px;
-  width: 300px;
+  width: 320px;
   border: 1px solid black;
   margin: auto;
   padding-top: 30px;
@@ -35,14 +36,14 @@ th {
   width: 320px;
   border: 1px solid black;
   margin: auto;
-  padding-top: 30px;
+  padding: 20px 0;
   background-color: aquamarine;
 }
 .result1 {
   height: 50px;
   border: 1px solid black;
   margin: auto;
-
+  width: 321px;
   display: flex;
   justify-content: flex-end;
   align-items: center;

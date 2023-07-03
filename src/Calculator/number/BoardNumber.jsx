@@ -69,7 +69,7 @@ const BoardNumber = () => {
       <div className={classResult}>{result}</div>
       <table>
         <thead>
-          <tr className="row">
+          <tr>
             <th onClick={(e) => handleClickEqual(e)}>%</th>
             <th
               onClick={() => {
@@ -91,7 +91,7 @@ const BoardNumber = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className="row">
+          <tr>
             <th onClick={(e) => handleClickSquare(e)}>x^2</th>
             <th
               onClick={() => {
@@ -114,7 +114,7 @@ const BoardNumber = () => {
               &#247;
             </th>
           </tr>
-          <tr className="row">
+          <tr>
             <th onClick={(e) => handleClickNumber(e)}>7</th>
             <th onClick={(e) => handleClickNumber(e)}>8</th>
             <th onClick={(e) => handleClickNumber(e)}>9</th>
@@ -125,7 +125,7 @@ const BoardNumber = () => {
               *
             </th>
           </tr>
-          <tr className="row">
+          <tr>
             <th onClick={(e) => handleClickNumber(e)}>4</th>
             <th onClick={(e) => handleClickNumber(e)}>5</th>
             <th onClick={(e) => handleClickNumber(e)}>6</th>
@@ -136,7 +136,7 @@ const BoardNumber = () => {
               -
             </th>
           </tr>
-          <tr className="row">
+          <tr>
             <th onClick={(e) => handleClickNumber(e)}>1</th>
             <th onClick={(e) => handleClickNumber(e)}>2</th>
             <th onClick={(e) => handleClickNumber(e)}>3</th>
@@ -147,7 +147,7 @@ const BoardNumber = () => {
               +
             </th>
           </tr>
-          <tr className="row">
+          <tr>
             <th
               onClick={() => {
                 setResult(0 - result);

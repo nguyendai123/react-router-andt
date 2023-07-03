@@ -1,5 +1,6 @@
 import "./index.css";
 import Cell from "../Cell/Cell";
+// eslint-disable-next-line react/prop-types
 const Row = ({ rowType, count, color2, color1 }) => {
   var rows = [];
   for (let i = 0; i < count; i++) {

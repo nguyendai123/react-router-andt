@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import "./Chess.css";
 import { ChessBoard } from "../ChessBoard/ChessBoard";
 
 function Chess() {
@@ -15,10 +15,10 @@ function Chess() {
     setCount(e.target.value);
   };
   const handleClickColor1 = () => {
-    setColor1(document.querySelector(".color1").value);
+    setColor1(document.querySelector(".colorone").value);
   };
   const handleClickColor2 = () => {
-    setColor2(document.querySelector(".color2").value);
+    setColor2(document.querySelector(".colortwo").value);
   };
   const handleClickTran = () => {
     console.log("kdkkds");
@@ -31,16 +31,18 @@ function Chess() {
         <ChessBoard count={count} color1={color1} color2={color2} />
       </div>
       <div>
-        <input type="text" value={count} onChange={(e) => handdleOnchange(e)} />
-        {/* <button onClick={()=>handleClick()}>Search</button> */}
-      </div>
-      <div>
-        <input type="text" className="color1" />
-        <button onClick={() => handleClickColor1()}>Search color</button>
-      </div>
-      <div>
-        <input type="text" className="color2" />
-        <button onClick={() => handleClickColor2()}>Search color</button>
+        <div>
+          <input value={count} onChange={(e) => handdleOnchange(e)} />
+          {/* <button onClick={()=>handleClick()}>Search</button> */}
+        </div>
+        <div className="setColor">
+          <input className="colorone" />
+          <button onClick={() => handleClickColor1()}>Search color</button>
+        </div>
+        <div className="setColor">
+          <input className="colortwo" />
+          <button onClick={() => handleClickColor2()}>Search color</button>
+        </div>
       </div>
     </>
   );
