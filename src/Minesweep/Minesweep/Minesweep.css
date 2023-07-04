@@ -1,0 +1,34 @@
+
+.table-sweep {
+  
+  width: 210px;
+  margin:auto;
+  
+  
+}
+.row-mine {
+  
+  width: 100%;
+  height: 40px;
+}
+.col-mine {
+  width: 40px;
+  height: 100%;
+  cursor: pointer;
+  background-color: #c4b7b7;
+}
+.GameOver {
+  width: 20%;
+  height: 100%;
+  cursor: pointer;
+  background-color: red;
+}
+.display {
+  background-color: blue;
+}
+.boom {
+  background-color: red;
+}
+.zero {
+  background-color: aqua;
+}
