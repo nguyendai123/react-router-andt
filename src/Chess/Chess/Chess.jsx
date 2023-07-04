@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./Chess.css";
 import { ChessBoard } from "../ChessBoard/ChessBoard";
+import { Button, Input, Space } from "antd";
 
 function Chess() {
   //  const [n,setN] =useState(4);
@@ -30,19 +31,19 @@ function Chess() {
       <div onClick={() => handleClickTran()}>
         <ChessBoard count={count} color1={color1} color2={color2} />
       </div>
-      <div>
-        <div>
-          <input value={count} onChange={(e) => handdleOnchange(e)} />
-          {/* <button onClick={()=>handleClick()}>Search</button> */}
-        </div>
-        <div className="setColor">
-          <input className="colorone" />
-          <button onClick={() => handleClickColor1()}>Search color</button>
-        </div>
-        <div className="setColor">
-          <input className="colortwo" />
-          <button onClick={() => handleClickColor2()}>Search color</button>
-        </div>
+      <div className="form-input">
+        <Space>
+          <Input value={count} onChange={(e) => handdleOnchange(e)} />
+          <Button>Search value</Button>
+        </Space>
+        <Space className="setColor">
+          <Input className="colorone" />
+          <Button onClick={() => handleClickColor1()}>Search color</Button>
+        </Space>
+        <Space className="setColor">
+          <Input className="colortwo" />
+          <Button onClick={() => handleClickColor2()}>Search color</Button>
+        </Space>
       </div>
     </>
   );

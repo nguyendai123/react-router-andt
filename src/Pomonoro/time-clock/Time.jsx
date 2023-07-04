@@ -1,99 +1,154 @@
-import { Button, Typography, InputNumber, Space } from "antd";
+import { Button, InputNumber, Space, Menu } from "antd";
 import "./Time.css";
+
+import moment from "moment/moment";
 import { useState, useEffect } from "react";
+const items = [
+  {
+    label: "Working",
+    key: "working",
+  },
+  {
+    label: "Play",
+    key: "playing",
+  },
+];
 const Time = () => {
   const today = new Date();
+  const [countWork, setCountWork] = useState(20);
+  const [countPlay, setCountPlay] = useState(10);
+  const [showinput, setShowinput] = useState(1);
+  const [pause, setPause] = useState(0);
+  const [count, setCount] = useState(countWork);
+  const [current, setCurrent] = useState("working");
   var time =
     today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-  const [count, setCount] = useState(20);
-  const [classTime, setClassTime] = useState("time");
-  const [classCount] = useState("startcount");
-  const [number, setNumber] = useState(0);
-  const [cycle1, setCycle1] = useState(2000);
-  const [cycle2, setCycle2] = useState(5000);
-  const [pause, setPause] = useState(0);
+  const [timecurrent] = useState(time);
+  const startTime = timecurrent;
 
-  useEffect(() => {
-    setTimeout(() => {
-      if (number == 0 && count != 0 && pause != 1) {
-        setClassTime("time1");
-        setNumber(1);
-      }
-    }, cycle2);
-  }, [classTime, count, cycle2, number, pause]);
-  useEffect(() => {
-    setTimeout(() => {
-      if (number == 1 && count != 0 && pause != 1) {
-        setClassTime("time");
-        setNumber(0);
-      }
-    }, cycle1);
-  }, [classTime, count, cycle1, number, pause]);
+  const endTime = moment(startTime, "HH:mm:ss")
+    .add(count, "seconds")
+    .format("HH:mm:ss");
+
   useEffect(() => {
     console.log("effect");
 
     // num = number;
     // console.log("check num", num);
     const time = setInterval(() => {
-      if (count == 0) clearInterval(time);
-      else if (pause == 0) setCount(count - 1);
-      else setCount(count);
+      if (countWork == 0 || current == "playing") clearInterval(time);
+      else if (pause == 0) {
+        setCountWork(countWork - 1);
+      } else {
+        setCountWork(countWork);
+      }
       console.log("h1");
     }, 1000);
     return () => {
       //clearInterval(workTran);
       clearInterval(time);
     };
-  }, [count, pause]);
+  }, [countWork, current, pause]);
+  useEffect(() => {
+    console.log("effect");
 
-  function handleInputCount(e) {
-    setCount(e.target.value);
-  }
-  const handleInputCycle1 = (e) => {
-    setCycle1(e.target.value);
+    // num = number;
+    // console.log("check num", num);
+    const time1 = setInterval(() => {
+      if (countPlay == 0 || current == "working") clearInterval(time1);
+      else if (pause == 0) {
+        setCountPlay(countPlay - 1);
+      } else {
+        setCountPlay(countPlay);
+      }
+      console.log("h1");
+    }, 1000);
+    return () => {
+      //clearInterval(workTran);
+      clearInterval(time1);
+    };
+  }, [countPlay, current, pause]);
+
+  const handleInputCycle1 = (value) => {
+    setCountWork(value);
   };
-  const handleInputCycle2 = (e) => {
-    setCycle2(e.target.value);
+  const handleInputCycle2 = (value) => {
+    setCountPlay(value);
+  };
+  const handleStart = () => {
+    current == "working" ? setCountWork(20) : setCountPlay(10);
   };
   const handlePause = () => {
     setPause(1);
   };
 
   const handleContinue = () => {
-    alert("dkdk");
     setPause(0);
-    setCount(count - 1);
+    current == "working"
+      ? setCountWork(countWork - 1)
+      : setCountPlay(countPlay - 1);
   };
-  const [showinput, setShowinput] = useState(1);
+
+  const onClick = (e) => {
+    console.log("click ", e);
+    setCurrent(e.key);
+    {
+      current == "playing" && setCount(countPlay);
+    }
+  };
+
   return (
     <>
-      <Button type="primary" onClick={() => setShowinput(!showinput)}>
-        {showinput ? "show" : "hidden"}
-      </Button>
-      <Space className={showinput ? "show" : ""}>
-        <InputNumber
-          style={{ color: "blue" }}
-          onChange={(e) => handleInputCycle1(e)}
-          placeholder="Cycle_suspect"
-        />
-        <InputNumber
-          style={{ color: "blue" }}
-          onChange={(e) => handleInputCycle2(e)}
-          placeholder="Cycle_Work"
-        />
+      <Menu
+        style={{ backgroundColor: "D2E9E9" }}
+        className="menu-pregnancy"
+        onClick={onClick}
+        selectedKeys={[current]}
+        mode="horizontal"
+        items={items}
+      />
+      <div className="pregnancy-content">
+        {current == "working" ? (
+          <div className="time">{countWork}</div>
+        ) : (
+          <div className="time1">{countPlay}</div>
+        )}
+      </div>
 
-        <InputNumber
-          style={{ color: "blue" }}
-          onChange={(e) => handleInputCount(e)}
-          placeholder="Count"
-        />
+      <Space className="button-click">
+        <Button style={{ width: "90px" }} onClick={() => handleStart()}>
+          Reset
+        </Button>
+        <Button style={{ width: "90px" }} onClick={() => handlePause()}>
+          Pause
+        </Button>
+        <Button onClick={() => handleContinue()}>Continue</Button>
       </Space>
-      <Typography>{time}</Typography>
-      <Space className={classTime}>
-        <Typography className={classCount}>{count}</Typography>
+      <div className="form-input">
+        <Button type="primary" onClick={() => setShowinput(!showinput)}>
+          {showinput ? "hidden" : "show"}
+        </Button>
+      </div>
+      <Space className={showinput ? "show" : "hidden"}>
+        <Space>
+          <InputNumber
+            style={{ color: "blue", width: "200px" }}
+            onChange={(e) => handleInputCycle1(e)}
+          />
+          <Button>Set time play</Button>
+        </Space>
+        <Space>
+          <InputNumber
+            style={{ color: "blue", width: "200px" }}
+            onChange={(e) => handleInputCycle2(e)}
+          />
+          <Button>Set time work</Button>
+        </Space>
       </Space>
-      <Button onClick={() => handlePause()}>pause</Button>
-      <Button onClick={() => handleContinue()}>Continue</Button>
+      <Space className="time-now">
+        <Space className="start-time">{time}</Space>
+        <Space className="end-time">{endTime}</Space>
+      </Space>
     </>
   );
 };

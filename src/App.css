@@ -1,3 +1,4 @@
+
 .header{
     display: flex;
     justify-content: space-between;
@@ -21,4 +22,14 @@ img.image-logo__icon{
 .account-header{
     margin:0 10px;
     margin-bottom: 10px;
+}
+.footer-content{
+    font-size: 15px;
+    display: flex;
+    bottom:0;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-left: 200px;
+    
 }

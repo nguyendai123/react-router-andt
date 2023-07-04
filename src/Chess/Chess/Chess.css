@@ -6,3 +6,10 @@
     width: 200px;
     height: 24px;
 }
+.form-input{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:20px;
+}

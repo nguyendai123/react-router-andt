@@ -57,10 +57,6 @@ const App = () => {
   return (
     <>
       <Router>
-        <div>
-          {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
-        </div>
         <Layout>
           <Header>
             <div className="header">
@@ -132,10 +128,15 @@ const App = () => {
               </Space>
             </div>
           </Header>
-          <Layout>
-            <Sider>
+          <Layout style={{ minHeight: "calc(100vh - 64px - 70px)" }}>
+            <Sider
+              style={{
+                backgroundColor: "white",
+              }}
+            >
               <Menu
-                theme="red"
+                style={{ fontSize: "20px" }}
+                color="white"
                 onClick={onClick}
                 selectedKeys={[current]}
                 mode="vertical"
@@ -162,6 +163,16 @@ const App = () => {
               </Switch>
             </Content>
           </Layout>
+          <Footer
+            style={{
+              backgroundColor: "white",
+            }}
+          >
+            <Space className="footer-content">
+              {" "}
+              Copy right by Nguyen Van Dai @2023
+            </Space>
+          </Footer>
         </Layout>
       </Router>
     </>

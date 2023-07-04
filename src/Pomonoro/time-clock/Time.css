@@ -1,4 +1,16 @@
-
+.menu-pregnancy{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.pregnancy-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
 .time{
     display: flex;
     justify-content: center;
@@ -9,19 +21,20 @@
     border-radius: 50px;
     text-align: center;
     margin: auto;
+    margin-top: 20px;
     
 }
 .time1{
     display: flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(207, 203, 205);
     width: 100px;
     height: 100px;
     border-radius: 50px;
     text-align: center;
     margin: auto;
-    
+    margin-top: 20px;
 }
 .startcount{
     
@@ -35,5 +48,36 @@
 
 
 .show{
+   display: flex;
+   flex-direction: column;
+   padding-bottom: 15px;
+}
+.hidden{
     display: none;
+}
+.button-click{
+    display: flex;
+    justify-content: center;
+    margin: 50px ;
+}
+.form-input{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+.time-now{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+.start-time{
+background-color: aquamarine;
+padding: 10px;
+border-radius: 15px;
+
+}
+.end-time{
+    background-color: rgb(179, 47, 80);
+    padding: 10px;
+    border-radius: 15px;
 }
