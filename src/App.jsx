@@ -1,10 +1,4 @@
-import {
-
-  
-
-  SearchOutlined,
-  BellOutlined,
-} from "@ant-design/icons";
+import { SearchOutlined, BellOutlined } from "@ant-design/icons";
 import logo from "./assets/logo.svg";
 
 import { Menu, Space, Avatar, Layout } from "antd";
@@ -15,6 +9,7 @@ import Chess from "./Chess/Chess/Chess";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import BoardNumber from "./Calculator/number/BoardNumber";
 import HelloWorld from "./HelloWorld/Hello";
+import CallApi from "./CallApi/CallApi";
 import Minesweep from "./Minesweep/Minesweep/Minesweep";
 import Time from "./Pomonoro/time-clock/Time";
 const { Header, Content, Footer, Sider } = Layout;
@@ -24,12 +19,10 @@ const items = [
   {
     label: <Link to="/time">Time</Link>,
     key: "time",
-    
   },
   {
     label: <Link to="/boardnumber">Board number</Link>,
     key: "boardnumber",
-    
   },
   {
     label: <Link to="/chessboard">Chess board</Link>,
@@ -39,9 +32,14 @@ const items = [
     label: <Link to="/minesweep">mine sweep</Link>,
     key: "minesweep",
   },
+
   {
     label: <Link to="/">hello</Link>,
     key: "/",
+  },
+  {
+    label: <Link to="/server">my server</Link>,
+    key: "server",
   },
 ];
 const App = () => {
@@ -61,7 +59,7 @@ const App = () => {
     <>
       <Router>
         <Layout>
-          <Header>
+          <Header style={{ padding: "0 20px" }}>
             <div className="header">
               <Space className="left-header">
                 <Space className="image-logo">
@@ -139,6 +137,7 @@ const App = () => {
             >
               <Menu
                 style={{ fontSize: "20px" }}
+                theme="gray"
                 color="white"
                 onClick={onClick}
                 selectedKeys={[current]}
@@ -159,6 +158,12 @@ const App = () => {
                 </Route>
                 <Route path="/minesweep">
                   <Minesweep />
+                </Route>
+                <Route path="/server">
+                  <div>
+                    Hello World
+                    <CallApi />
+                  </div>
                 </Route>
                 <Route path="/">
                   <HelloWorld />
