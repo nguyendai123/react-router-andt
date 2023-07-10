@@ -1,17 +1,29 @@
-import { SearchOutlined, BellOutlined } from "@ant-design/icons";
+import {
+  SearchOutlined,
+  BellOutlined,
+  UserOutlined,
+  MenuUnfoldOutlined,
+  MenuFoldOutlined,
+  PieChartOutlined,
+  DesktopOutlined,
+  ContainerOutlined,
+  MailOutlined,
+  AppstoreOutlined,
+} from "@ant-design/icons";
 import logo from "./assets/logo.svg";
 
-import { Menu, Space, Avatar, Layout } from "antd";
+import { Menu, Space, Avatar, Layout, Input, Button } from "antd";
 import { useState } from "react";
 import { Typography, Badge } from "antd";
 const { Title } = Typography;
 import Chess from "./Chess/Chess/Chess";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+
 import BoardNumber from "./Calculator/number/BoardNumber";
 import HelloWorld from "./HelloWorld/Hello";
 import CallApi from "./CallApi/CallApi";
 import Minesweep from "./Minesweep/Minesweep/Minesweep";
-import Time from "./Pomonoro/time-clock/Time";
+import Pomonoro from "./Pomonoro/time-clock/Pomonoro";
 const { Header, Content, Footer, Sider } = Layout;
 import "./App.css";
 
@@ -19,27 +31,33 @@ const items = [
   {
     label: <Link to="/time">Time</Link>,
     key: "time",
+    icon: <PieChartOutlined />,
   },
   {
     label: <Link to="/boardnumber">Board number</Link>,
     key: "boardnumber",
+    icon: <DesktopOutlined />,
   },
   {
     label: <Link to="/chessboard">Chess board</Link>,
     key: "chessboard",
+    icon: <ContainerOutlined />,
   },
   {
     label: <Link to="/minesweep">mine sweep</Link>,
     key: "minesweep",
+    icon: <MailOutlined />,
   },
 
   {
     label: <Link to="/">hello</Link>,
     key: "/",
+    icon: <AppstoreOutlined />,
   },
   {
     label: <Link to="/server">my server</Link>,
     key: "server",
+    icon: <AppstoreOutlined />,
   },
 ];
 const App = () => {
@@ -49,12 +67,20 @@ const App = () => {
   const [user] = useState(UserList[0]);
   const [color] = useState(ColorList[0]);
   const [gap] = useState(GapList[0]);
-
+  const [showinputheader, setShowinputheader] = useState(false);
   const [current, setCurrent] = useState("time");
+  const [collapsed, setCollapsed] = useState(true);
+  const toggleCollapsed = () => {
+    setCollapsed(!collapsed);
+  };
   const onClick = (e) => {
     console.log("click ", e);
     setCurrent(e.key);
   };
+  const handleClickSearch = () => {
+    setShowinputheader(!showinputheader);
+  };
+
   return (
     <>
       <Router>
@@ -73,9 +99,16 @@ const App = () => {
               <Space className="right-header">
                 <Space className="search-header">
                   <SearchOutlined
+                    onClick={() => handleClickSearch()}
                     style={{
                       color: "white",
                     }}
+                  />
+                  <Input
+                    className={!showinputheader && "an"}
+                    size="small"
+                    placeholder="default size"
+                    prefix={<UserOutlined />}
                   />
                 </Space>
                 <Space className="bell-header">
@@ -134,21 +167,33 @@ const App = () => {
               style={{
                 backgroundColor: "white",
               }}
+              collapsed={collapsed}
             >
-              <Menu
-                style={{ fontSize: "20px" }}
-                theme="gray"
-                color="white"
-                onClick={onClick}
-                selectedKeys={[current]}
-                mode="vertical"
-                items={items}
-              />
+              <div>
+                <Button
+                  type="primary"
+                  onClick={toggleCollapsed}
+                  style={{
+                    margin: 16,
+                  }}
+                >
+                  {collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                </Button>
+                <Menu
+                  style={{ fontSize: "20px" }}
+                  color="white"
+                  onClick={onClick}
+                  selectedKeys={[current]}
+                  mode="inline"
+                  theme="white"
+                  items={items}
+                />
+              </div>
             </Sider>
             <Content>
               <Switch>
                 <Route path="/time">
-                  <Time />
+                  <Pomonoro />
                 </Route>
                 <Route path="/boardnumber">
                   <BoardNumber />

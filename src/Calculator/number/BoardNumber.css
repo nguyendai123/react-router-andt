@@ -20,13 +20,13 @@ th {
   height: 45px;
   background-color: rgba(19, 56, 160, 0.842);
 }
-.display {
+.displayCaculator {
   height: 40px;
-  width: 321px;
+  width: 320px;
   border: 1px solid black;
   margin: auto;
   padding-top: 30px;
-  background-color: #cfcbcb !important;
+  background-color: #cfcbcb;
   border: 2px solid;
   padding: 10px;
   border-radius: 25px 25px 0 0;
@@ -37,7 +37,7 @@ th {
   border: 1px solid black;
   margin: auto;
   padding: 20px 0;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 .result1 {
   height: 50px;

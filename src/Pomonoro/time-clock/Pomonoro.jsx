@@ -1,5 +1,5 @@
 import { Button, InputNumber, Space, Menu, Progress } from "antd";
-import "./Time.css";
+import "./Pomonoro.css";
 
 import moment from "moment/moment";
 import { useState, useEffect } from "react";
@@ -13,7 +13,7 @@ const items = [
     key: "playing",
   },
 ];
-const Time = () => {
+const Pomonoro = () => {
   const today = new Date();
   const [countWork, setCountWork] = useState(20);
   const [countPlay, setCountPlay] = useState(10);
@@ -22,7 +22,7 @@ const Time = () => {
   const [percent2, setPercent2] = useState(100);
   const [status, setStatus] = useState("success");
   const [pause, setPause] = useState(0);
-  const [count, setCount] = useState(countWork);
+  const [count] = useState(countWork);
   const [current, setCurrent] = useState("working");
 
   var time =
@@ -64,6 +64,7 @@ const Time = () => {
       if (countPlay == 0 || current == "working") clearInterval(time1);
       else if (pause == 0) {
         setCountPlay(countPlay - 1);
+
         setPercent2(percent2 - percent2 / countPlay);
 
         if (percent2 < 85 && percent2 > 35) setStatus("active");
@@ -86,6 +87,8 @@ const Time = () => {
     setCountWork(value);
   };
   const handleStart = () => {
+    setStatus("success");
+    current == "working" ? setPercent1(100) : setPercent2(100);
     current == "working" ? setCountWork(20) : setCountPlay(10);
   };
   const handlePause = () => {
@@ -105,7 +108,7 @@ const Time = () => {
     setCurrent(current == "working" ? "playing" : "working");
     setEndTime(
       moment(time, "HH:mm:ss")
-        .add(current == "working" ? 10 : 20, "seconds")
+        .add(current == "working" ? countPlay : countWork, "seconds")
         .format("HH:mm:ss")
     );
   };
@@ -188,4 +191,4 @@ const Time = () => {
   );
 };
 
-export default Time;
+export default Pomonoro;

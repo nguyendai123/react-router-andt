@@ -1,13 +1,12 @@
-button{
-    
-        margin: auto;
-        border-radius:25px;
-        border:1px solid black;
-        cursor: pointer;
-        width: 79px;
-        height:49px;
-        background-color: rgba(19, 56, 160, 0.842);
+button {
+  margin: auto;
+  border-radius: 25px;
+  border: 1px solid black;
+  cursor: pointer;
+  width: 79px;
+  height: 49px;
+  background-color: rgba(19, 56, 160, 0.842);
 }
-.cong{
-    background-color: red;
-  }
+.cong {
+  background-color: red;
+}

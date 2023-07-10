@@ -44,6 +44,7 @@ const BoardNumber = () => {
     setNumber("");
     e.target.innerText == "=" && setClassResult("result1");
   };
+
   const handleDelete = () => {
     //setDisplay(display.slice(0, display.length - 1));
     setNumber(display.slice(0, display.length - 1));
@@ -65,7 +66,7 @@ const BoardNumber = () => {
 
   return (
     <div className="table-number">
-      <div className="display">{display}</div>
+      <div className="displayCaculator">{display}</div>
       <div className={classResult}>{result}</div>
       <table>
         <thead>
