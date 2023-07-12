@@ -12,18 +12,21 @@ import {
 } from "@ant-design/icons";
 import LogoAndt from "./assets/LogoAndt.jsx";
 import LoginForm from "./LoginForm/LoginForm";
-import { Menu, Space, Avatar, Layout, Input, Button,ConfigProvider, theme } from "antd";
+import {
+  Menu,
+  Space,
+  Avatar,
+  Layout,
+  Input,
+  Button,
+  ConfigProvider,
+  theme,
+} from "antd";
 import { useState } from "react";
 import { Typography, Badge } from "antd";
 const { Title } = Typography;
 import Chess from "./Chess/Chess/Chess";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link,
-  
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import BoardNumber from "./Calculator/number/BoardNumber";
 import HelloWorld from "./HelloWorld/Hello";
@@ -70,13 +73,15 @@ const items = [
 ];
 const defaultData = {
   borderRadius: 6,
-  colorPrimary: '#1677ff',
-  colorText	 :'red'
+  colorPrimary: "#1677ff",
+  //colorBgLayout: "blue",
+  colorText: "red",
 };
 const CurrentData = {
   borderRadius: 6,
-  colorPrimary: 'green',
-  colorText :'red',
+  colorPrimary: "green",
+  colorText: "red",
+  colorBgLayout: "#333",
 };
 const App = () => {
   const [data, setData] = useState(defaultData);
@@ -89,7 +94,7 @@ const App = () => {
   const [showinputheader, setShowinputheader] = useState(false);
   const [current, setCurrent] = useState("time");
   const [collapsed, setCollapsed] = useState(true);
-  const [ theme, setTheme] = useState(true);
+  const [theme, setTheme] = useState(true);
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
@@ -101,9 +106,9 @@ const App = () => {
     setShowinputheader(!showinputheader);
   };
   const handleClicktheme = () => {
-    setTheme(!theme)
-    !theme ? setData(CurrentData ) :setData(defaultData)
-  }
+    setTheme(!theme);
+    !theme ? setData(CurrentData) : setData(defaultData);
+  };
   // const pathname = window.location.pathname;
   // const [token, setToken] = useState(null);
   // if ((!token || !token.length) && pathname != "/login") {
@@ -112,29 +117,30 @@ const App = () => {
   return (
     <ConfigProvider
       theme={{
-        token :{
-          colorPrimary : data.colorPrimary,
-          borderRadius : data.borderRadius,
-        }
+        token: {
+          colorPrimary: data.colorPrimary,
+          borderRadius: data.borderRadius,
+          colorBgLayout: data.colorBgLayout,
+          colorText: data.colorText,
+        },
       }}
     >
       <BrowserRouter>
-
         <Router>
           <Layout>
             <Header style={{ padding: "0 20px" }}>
               <div className="header">
                 <Space className="left-header">
                   <Space className="image-logo">
-                    <LogoAndt colorPrimary ={data.colorPrimary}/>
+                    <LogoAndt colorPrimary={data.colorPrimary} />
                   </Space>
 
                   <Title className="header-title" style={{ color: "white" }}>
                     Ant Design Pro
                   </Title>
                 </Space>
-                <Space  size ={"middle"} className="right-header">
-                  <Space  className="search-header">
+                <Space size={"middle"} className="right-header">
+                  <Space className="search-header">
                     <SearchOutlined
                       onClick={() => handleClickSearch()}
                       style={{
@@ -199,13 +205,12 @@ const App = () => {
                 </Space>
               </div>
             </Header>
-            
 
             <Layout style={{ minHeight: "calc(100vh - 64px - 70px)" }}>
               <Sider
-                style={{
-                  backgroundColor: "white",
-                }}
+                // style={{
+                //   backgroundColor: "white",
+                // }}
                 collapsed={collapsed}
               >
                 <div>
@@ -230,7 +235,12 @@ const App = () => {
                 </div>
               </Sider>
               <Content>
-                <Button onClick={()=>handleClicktheme()} style={{ margin :'20px 10px' }}>tran theme</Button>
+                <Button
+                  onClick={() => handleClicktheme()}
+                  style={{ margin: "10px 10px" }}
+                >
+                  tran theme
+                </Button>
                 <Switch>
                   <Route path="/time">
                     <Pomonoro />
@@ -268,7 +278,6 @@ const App = () => {
             </Footer>
           </Layout>
         </Router>
-
       </BrowserRouter>
     </ConfigProvider>
   );

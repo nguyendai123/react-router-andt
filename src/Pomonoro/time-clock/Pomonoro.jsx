@@ -90,6 +90,11 @@ const Pomonoro = () => {
     setStatus("success");
     current == "working" ? setPercent1(100) : setPercent2(100);
     current == "working" ? setCountWork(20) : setCountPlay(10);
+    setEndTime(
+      moment(today, "HH:mm:ss")
+        .add(current == "working" ? 20 : 10, "seconds")
+        .format("HH:mm:ss")
+    );
   };
   const handlePause = () => {
     setPause(1);
@@ -107,7 +112,7 @@ const Pomonoro = () => {
     setCurrent(e.key);
     setCurrent(current == "working" ? "playing" : "working");
     setEndTime(
-      moment(time, "HH:mm:ss")
+      moment(today, "HH:mm:ss")
         .add(current == "working" ? countPlay : countWork, "seconds")
         .format("HH:mm:ss")
     );
