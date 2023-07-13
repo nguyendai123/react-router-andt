@@ -7,7 +7,7 @@ export const HelloWorld = () => {
         color: "black",
       }}
     >
-      xin chào
+      Nguyễn Văn Đại
     </Space>
   );
 };
