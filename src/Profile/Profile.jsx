@@ -11,8 +11,6 @@ function Profile({ token, logOut, setUser }) {
     setUser(profile.username.slice(0, 1).toUpperCase());
   }, [profile.username, setUser]);
 
-  console.log("posi", profile.position);
-  console.log("company", profile.company);
   return (
     <>
       <Space>

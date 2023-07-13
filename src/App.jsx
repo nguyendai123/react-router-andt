@@ -40,6 +40,7 @@ import { ThemeLightIcon } from "./assets/ThemeLightIcon.jsx";
 import tr from "./i18n";
 import QuoteList from "./QuoteList.jsx";
 import Profile from "./Profile/Profile";
+import BellHeader from "./BellHeader/BellHeader.jsx";
 
 const defaultData = {
   borderRadius: 6,
@@ -143,6 +144,9 @@ const App = () => {
   if ((!token || !token.length) && pathname !== "/login") {
     history.push("/login");
   }
+  const gotohome = () => {
+    history.push("/");
+  };
   return (
     <ConfigProvider
       theme={{
@@ -165,7 +169,7 @@ const App = () => {
         <Layout>
           <Header style={{ padding: "0 20px" }}>
             <div className="header">
-              <Space className="left-header">
+              <Space onClick={() => gotohome()} className="left-header">
                 <Space className="image-logo">
                   <LogoAndt colorPrimary={data.colorPrimary} />
                 </Space>
@@ -189,15 +193,7 @@ const App = () => {
                     prefix={<UserOutlined />}
                   />
                 </Space>
-                <Space className="bell-header">
-                  <Badge count={5}>
-                    <BellOutlined
-                      style={{
-                        color: "white",
-                      }}
-                    />
-                  </Badge>
-                </Space>
+                <BellHeader />
                 <Space className="account-header">
                   <Avatar
                     style={{

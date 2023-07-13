@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   text-align: center;
+  cursor: pointer;
 }
 .an {
   display: none;
