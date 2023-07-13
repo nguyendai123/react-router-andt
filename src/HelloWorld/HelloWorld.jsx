@@ -1,14 +1,15 @@
-function HelloWorld() {
+import { Space } from "antd";
+
+export const HelloWorld = () => {
   return (
-    <>
-      <div>
-        Hello
-        worldjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj
-      </div>
-      ;<div>Hello world</div>;<div>Hello world</div>;<div>Hello world</div>;
-      <div>Hello world</div>;
-    </>
+    <Space
+      style={{
+        color: "black",
+      }}
+    >
+      xin chào
+    </Space>
   );
-}
+};
 
 export default HelloWorld;

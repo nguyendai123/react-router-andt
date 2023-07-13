@@ -1,19 +1,21 @@
 import { Button, InputNumber, Space, Menu, Progress } from "antd";
 import "./Pomonoro.css";
-
+import tr from "../../i18n";
 import moment from "moment/moment";
 import { useState, useEffect } from "react";
-const items = [
-  {
-    label: "Working",
-    key: "working",
-  },
-  {
-    label: "Play",
-    key: "playing",
-  },
-];
-const Pomonoro = ({ bgfooter }) => {
+
+// eslint-disable-next-line react/prop-types
+const Pomonoro = ({ bgfooter, lang }) => {
+  const items = [
+    {
+      label: tr("Working", lang),
+      key: "working",
+    },
+    {
+      label: tr("Play", lang),
+      key: "playing",
+    },
+  ];
   const today = new Date();
   const [countWork, setCountWork] = useState(20);
   const [countPlay, setCountPlay] = useState(10);
@@ -91,7 +93,7 @@ const Pomonoro = ({ bgfooter }) => {
     current == "working" ? setPercent1(100) : setPercent2(100);
     current == "working" ? setCountWork(20) : setCountPlay(10);
     setEndTime(
-      moment(today, "HH:mm:ss")
+      moment(new Date(), "HH:mm:ss")
         .add(current == "working" ? 20 : 10, "seconds")
         .format("HH:mm:ss")
     );
@@ -160,16 +162,16 @@ const Pomonoro = ({ bgfooter }) => {
 
       <Space className="button-click">
         <Button style={{ width: "90px" }} onClick={() => handleStart()}>
-          Reset
+          {tr("Reset", lang)}
         </Button>
         <Button style={{ width: "90px" }} onClick={() => handlePause()}>
-          Pause
+          {tr("Pause", lang)}
         </Button>
-        <Button onClick={() => handleContinue()}>Continue</Button>
+        <Button onClick={() => handleContinue()}>{tr("Continue", lang)}</Button>
       </Space>
       <div className="form-input">
         <Button type="primary" onClick={() => setShowinput(!showinput)}>
-          {showinput ? "hidden" : "show"}
+          {showinput ? tr("hidden", lang) : tr("show", lang)}
         </Button>
       </div>
       <Space className={showinput ? "show" : "hidden"}>

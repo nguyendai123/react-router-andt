@@ -6,7 +6,7 @@ const Minesweep = () => {
   const array = [];
 
   const [boom, setBoom] = useState("");
-  const [zero, setZero] = useState("");
+  const [zero] = useState("");
   for (let i = 0; i < n - 1; i++) {
     array[i] = i + 1;
   }
@@ -82,7 +82,6 @@ const Minesweep = () => {
                   ) : (
                     <Button
                       className={zero}
-                      setZero={setZero}
                       arr={data}
                       i={i + 1}
                       j={j + 1}

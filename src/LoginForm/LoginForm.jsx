@@ -1,13 +1,22 @@
-import { Button, Input, Space, Typography } from "antd";
-
 import { useState } from "react";
-const { Text, Title } = Typography;
-function LoginForm() {
-  const [username, setUsername] = useState();
-  const [password, setPassword] = useState();
+import { Typography, Space, Input, Button } from "antd";
+import { MailOutlined, UserOutlined } from "@ant-design/icons";
 
+const { Text, Title } = Typography;
+
+// eslint-disable-next-line react/prop-types
+function LoginForm({ onSubmit }) {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   return (
-    <div>
+    <div
+      style={{
+        padding: 32,
+        display: "flex",
+        alignItems: "center",
+        flexDirection: "column",
+      }}
+    >
       <Title>Login</Title>
       <Space direction="vertical">
         <Space direction="vertical">
@@ -15,6 +24,7 @@ function LoginForm() {
             <Text>Username</Text>
           </div>
           <Input
+            prefix={<MailOutlined />}
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
@@ -25,6 +35,7 @@ function LoginForm() {
             <Text>Password</Text>
           </div>
           <Input
+            prefix={<UserOutlined />}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -34,10 +45,11 @@ function LoginForm() {
           <Button
             type="primary"
             onClick={async () => {
-              o;
+              console.log("submit");
+              onSubmit(username, password);
             }}
           >
-            Login
+            Submit
           </Button>
           <Button
             onClick={() => {
@@ -52,5 +64,4 @@ function LoginForm() {
     </div>
   );
 }
-
 export default LoginForm;
