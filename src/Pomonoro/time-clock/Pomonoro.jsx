@@ -13,7 +13,7 @@ const items = [
     key: "playing",
   },
 ];
-const Pomonoro = () => {
+const Pomonoro = ({ bgfooter }) => {
   const today = new Date();
   const [countWork, setCountWork] = useState(20);
   const [countPlay, setCountPlay] = useState(10);
@@ -121,7 +121,7 @@ const Pomonoro = () => {
   return (
     <>
       <Menu
-        style={{ backgroundColor: "D2E9E9", marginBottom: "40px" }}
+        style={{ backgroundColor: bgfooter, marginBottom: "40px" }}
         className="menu-pregnancy"
         onClick={onClick}
         selectedKeys={[current]}
