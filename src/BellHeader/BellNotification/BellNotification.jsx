@@ -93,7 +93,7 @@ const BellNotification = ({ icon }) => {
   }, []);
 
   return (
-    <Space align="end" style={{ width: "300px" }}>
+    <Space align="start" style={{ width: "300px" }}>
       <Avatar
         style={{
           backgroundColor: ColorList[Math.floor(Math.random() * 8)],
@@ -103,14 +103,10 @@ const BellNotification = ({ icon }) => {
         {Notification[icon].icon}
       </Avatar>
 
-      <Paragraph
-        ellipsis={true}
-        style={{ textAlign: "center", width: "250px" }}
-        strong
-      >
+      <Paragraph ellipsis={true} style={{ width: "250px" }} strong>
         {Notification[icon].label}
+        <div>{time1}</div>
       </Paragraph>
-      <div>{time1}</div>
     </Space>
   );
 };

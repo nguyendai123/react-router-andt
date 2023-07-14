@@ -1,5 +1,5 @@
 import React from "react";
-import { Dropdown, Space, Badge } from "antd";
+import { Dropdown, Space, Badge, Button } from "antd";
 import { BellOutlined } from "@ant-design/icons";
 import BellNotification from "./BellNotification/BellNotification";
 const items = [
@@ -30,9 +30,43 @@ const items = [
   {
     type: "divider",
   },
+
   {
-    label: "3rd menu item",
-    key: "5",
+    label: (
+      <div
+        style={{
+          padding: 5,
+          marginTop: "-6px",
+          borderTop: "1px solid #ddd",
+          display: "flex",
+          justifyContent: "space-between",
+        }}
+      >
+        <Button
+          style={{
+            borderRadius: 0,
+            height: "30px",
+            width: "150px",
+            border: "none",
+            padding: 0,
+          }}
+        >
+          Click me!
+        </Button>
+        <Button
+          style={{
+            borderRadius: 0,
+            height: "30px",
+            width: "150px",
+            border: "none",
+            padding: 0,
+          }}
+        >
+          Click me!
+        </Button>
+      </div>
+    ),
+    key: "7",
   },
 ];
 const BellHeader = () => {
