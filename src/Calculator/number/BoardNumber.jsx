@@ -1,8 +1,10 @@
 import { useState } from "react";
 import "./BoardNumber.css";
 import { Typography } from "antd";
+import tr from "../../i18n";
 const { Title } = Typography;
-const BoardNumber = () => {
+// eslint-disable-next-line react/prop-types
+const BoardNumber = ({ lang }) => {
   const [classResult, setClassResult] = useState("result");
   const [result, setResult] = useState(0);
   const [display, setDisplay] = useState("");
@@ -68,7 +70,7 @@ const BoardNumber = () => {
 
   return (
     <>
-      <Title style={{ margin: "20px" }}>BoardNumber</Title>
+      <Title style={{ margin: "20px" }}>{tr("Calculator", lang)}</Title>
       <div className="table-number">
         <div className="displayCaculator">{display}</div>
         <div className={classResult}>{result}</div>

@@ -1,9 +1,11 @@
 import { useState } from "react";
 import Button from "../Button/Button";
+import tr from "../../i18n";
 import "./Minesweep.css";
 import { Typography } from "antd";
 const { Title } = Typography;
-const Minesweep = () => {
+// eslint-disable-next-line react/prop-types
+const Minesweep = ({ lang }) => {
   var n = 8;
   const array = [];
 
@@ -63,7 +65,7 @@ const Minesweep = () => {
   const [data, setData] = useState([...arr]);
   return (
     <>
-      <Title style={{ margin: "20px" }}>Minesweep</Title>
+      <Title style={{ margin: "20px" }}>{tr("Minesweeper", lang)}</Title>
       <div className="table-sweep">
         {array.map((element, i) => {
           return (

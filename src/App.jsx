@@ -272,17 +272,17 @@ const App = () => {
                   <Pomonoro bgfooter={data.bgfooter} lang={lang} />
                 </Route>
                 <Route path="/calculator">
-                  <BoardNumber />
+                  <BoardNumber lang={lang} />
                 </Route>
                 <Route path="/chessboard">
-                  <Chess />
+                  <Chess lang={lang} />
                 </Route>
                 <Route path="/minesweep">
-                  <Minesweep />
+                  <Minesweep lang={lang} />
                 </Route>
                 <Route path="/quotes">
                   <div style={{ margin: "20px" }}>
-                    <Title>Quotes</Title>
+                    <Title>{tr("Quotes", lang)}</Title>
                     <Space>
                       <Button type="primary" onClick={getNewQuotes}>
                         {tr("Get quotes", lang)}
@@ -294,7 +294,7 @@ const App = () => {
                       />
                     </Space>
                   </div>
-                  <QuoteList quotes={quotes} />
+                  <QuoteList quotes={quotes} lang={lang} />
                 </Route>
 
                 <Route path="/">

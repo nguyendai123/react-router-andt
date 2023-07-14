@@ -3,8 +3,10 @@ import "./Chess.css";
 import { ChessBoard } from "../ChessBoard/ChessBoard";
 import { Button, Input, Space, Modal } from "antd";
 import { Typography } from "antd";
+import tr from "../../i18n";
 const { Title } = Typography;
-function Chess() {
+// eslint-disable-next-line react/prop-types
+function Chess({ lang }) {
   //  const [n,setN] =useState(4);
   const [count, setCount] = useState(4);
   const [color1, setColor1] = useState("black");
@@ -41,7 +43,7 @@ function Chess() {
   };
   return (
     <>
-      <Title style={{ margin: "20px" }}>Chess</Title>
+      <Title style={{ margin: "20px" }}>{tr("Chess board", lang)}</Title>
       <div onClick={() => handleClickTran()}>
         <ChessBoard count={count} color1={color1} color2={color2} />
       </div>

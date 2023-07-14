@@ -4,6 +4,7 @@ import tr from "../../i18n";
 import moment from "moment/moment";
 import { useState, useEffect } from "react";
 import { Typography } from "antd";
+
 const { Title } = Typography;
 // eslint-disable-next-line react/prop-types
 const Pomonoro = ({ bgfooter, lang }) => {
@@ -131,7 +132,7 @@ const Pomonoro = ({ bgfooter, lang }) => {
         mode="horizontal"
         items={items}
       />
-      <Title style={{ margin: "20px" }}>Pomonoro</Title>
+      <Title style={{ margin: "20px" }}>{tr("Pomodoro", lang)}</Title>
       <div className="pregnancy-content">
         {current == "working" ? (
           <Progress
