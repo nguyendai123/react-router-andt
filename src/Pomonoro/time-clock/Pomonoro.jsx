@@ -3,7 +3,8 @@ import "./Pomonoro.css";
 import tr from "../../i18n";
 import moment from "moment/moment";
 import { useState, useEffect } from "react";
-
+import { Typography } from "antd";
+const { Title } = Typography;
 // eslint-disable-next-line react/prop-types
 const Pomonoro = ({ bgfooter, lang }) => {
   const items = [
@@ -121,7 +122,7 @@ const Pomonoro = ({ bgfooter, lang }) => {
   };
 
   return (
-    <>
+    <div>
       <Menu
         style={{ backgroundColor: bgfooter, marginBottom: "40px" }}
         className="menu-pregnancy"
@@ -130,6 +131,7 @@ const Pomonoro = ({ bgfooter, lang }) => {
         mode="horizontal"
         items={items}
       />
+      <Title style={{ margin: "20px" }}>Pomonoro</Title>
       <div className="pregnancy-content">
         {current == "working" ? (
           <Progress
@@ -169,7 +171,7 @@ const Pomonoro = ({ bgfooter, lang }) => {
         </Button>
         <Button onClick={() => handleContinue()}>{tr("Continue", lang)}</Button>
       </Space>
-      <div className="form-input">
+      <div className="form-input1">
         <Button type="primary" onClick={() => setShowinput(!showinput)}>
           {showinput ? tr("hidden", lang) : tr("show", lang)}
         </Button>
@@ -194,7 +196,7 @@ const Pomonoro = ({ bgfooter, lang }) => {
         <Space className="start-time">{time}</Space>
         <Space className="end-time">{endTime}</Space>
       </Space>
-    </>
+    </div>
   );
 };
 

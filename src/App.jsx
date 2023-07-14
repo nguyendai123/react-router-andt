@@ -1,6 +1,5 @@
 import {
   SearchOutlined,
-  BellOutlined,
   UserOutlined,
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -20,7 +19,7 @@ import {
   Button,
   ConfigProvider,
   Typography,
-  Badge,
+  Dropdown,
 } from "antd";
 import LogoAndt from "./assets/LogoAndt.jsx";
 import LoginForm from "./LoginForm/LoginForm";
@@ -89,12 +88,12 @@ const App = () => {
     },
 
     {
-      label: <Link to="/">{tr("hello", lang)}</Link>,
+      label: <Link to="/">{tr("Hello", lang)}</Link>,
       key: "/",
       icon: <AppstoreOutlined />,
     },
     {
-      label: <Link to="/quotes">{tr("my quotes", lang)}</Link>,
+      label: <Link to="/quotes">{tr("My quotes", lang)}</Link>,
       key: "quotes",
       icon: <AppstoreOutlined />,
     },
@@ -195,16 +194,25 @@ const App = () => {
                 </Space>
                 <BellHeader />
                 <Space className="account-header">
-                  <Avatar
-                    style={{
-                      backgroundColor: ColorList[Math.floor(Math.random() * 3)],
-                      verticalAlign: "middle",
+                  <Dropdown
+                    menu={{
+                      items,
                     }}
-                    size="large"
-                    gap={gap}
+                    placement="bottomRight"
+                    arrow
                   >
-                    {user}
-                  </Avatar>
+                    <Avatar
+                      style={{
+                        backgroundColor:
+                          ColorList[Math.floor(Math.random() * 3)],
+                        verticalAlign: "middle",
+                      }}
+                      size="large"
+                      gap={gap}
+                    >
+                      {user}
+                    </Avatar>
+                  </Dropdown>
                   <Profile
                     token={token}
                     logOut={() => setToken(null)}
@@ -273,7 +281,8 @@ const App = () => {
                   <Minesweep />
                 </Route>
                 <Route path="/quotes">
-                  <div>
+                  <div style={{ margin: "20px" }}>
+                    <Title>Quotes</Title>
                     <Space>
                       <Button type="primary" onClick={getNewQuotes}>
                         {tr("Get quotes", lang)}

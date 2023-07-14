@@ -8,14 +8,14 @@ export default {
   "Chess board": {
     vi: "Bàn cờ vua",
   },
-  hello: {
-    vi: "xin chào",
+  Hello: {
+    vi: "Xin chào",
   },
   Minesweeper: {
     vi: "Dò mìn",
   },
-  "my quotes": {
-    vi: "quotes của tôi",
+  "My quotes": {
+    vi: "Quotes của tôi",
   },
   Quotes: {
     vi: "Châm ngôn",
@@ -36,10 +36,10 @@ export default {
     vi: "Tiếp tục",
   },
   show: {
-    vi: "hiện",
+    vi: "Hiện",
   },
   hidden: {
-    vi: "ẩn",
+    vi: "Ẩn",
   },
   "Copy right by Nguyen Van Dai @2023": {
     vi: "Bản quyền thuộc về Nguyễn Văn Đại @2023",

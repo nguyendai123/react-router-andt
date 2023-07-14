@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Space, Typography, Avatar } from "antd";
 import moment from "moment/moment";
 import {
@@ -64,6 +64,7 @@ const Notification = {
     label: "Icons on the left are used to distinguish between different types",
   },
 };
+// eslint-disable-next-line react/prop-types
 const BellNotification = ({ icon }) => {
   let object = {
     time: new Date(),

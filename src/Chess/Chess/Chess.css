@@ -1,15 +1,12 @@
-.setColor{
-    
-    
+.setColor {
 }
-.color1{
-    width: 200px;
-    height: 24px;
+.color1 {
+  width: 200px;
+  height: 24px;
 }
-.form-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap:20px;
+.form-input {
+  display: flex;
+  flex-direction: column;
+  width: 80px;
+  margin-left: 100px;
 }

@@ -1,14 +1,16 @@
-import { Space } from "antd";
+import { Typography } from "antd";
+const { Title } = Typography;
 
 export const HelloWorld = () => {
   return (
-    <Space
+    <Title
       style={{
         color: "black",
+        margin: "20px",
       }}
     >
       Nguyễn Văn Đại
-    </Space>
+    </Title>
   );
 };
 

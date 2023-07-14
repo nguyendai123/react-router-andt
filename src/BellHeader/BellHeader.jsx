@@ -1,4 +1,3 @@
-import React from "react";
 import { Dropdown, Space, Badge, Button } from "antd";
 import { BellOutlined } from "@ant-design/icons";
 import BellNotification from "./BellNotification/BellNotification";

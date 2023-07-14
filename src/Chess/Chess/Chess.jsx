@@ -1,8 +1,9 @@
 import { useState } from "react";
 import "./Chess.css";
 import { ChessBoard } from "../ChessBoard/ChessBoard";
-import { Button, Input, Space,Modal } from "antd";
-
+import { Button, Input, Space, Modal } from "antd";
+import { Typography } from "antd";
+const { Title } = Typography;
 function Chess() {
   //  const [n,setN] =useState(4);
   const [count, setCount] = useState(4);
@@ -40,41 +41,44 @@ function Chess() {
   };
   return (
     <>
+      <Title style={{ margin: "20px" }}>Chess</Title>
       <div onClick={() => handleClickTran()}>
         <ChessBoard count={count} color1={color1} color2={color2} />
       </div>
       <div className="form-input">
-       
-          
-            <Button type="primary" onClick={showModal}>
-              Setting
-            </Button>
-            <Modal
-              title="Basic Modal"
-              centered
-              open={isModalOpen}
-              onOk={handleOk}
-              onCancel={handleCancel}
-            >
-              <Space>
+        <Button type="primary" onClick={showModal}>
+          Setting
+        </Button>
+        <Modal
+          title="Basic Modal"
+          centered
+          open={isModalOpen}
+          onOk={handleOk}
+          onCancel={handleCancel}
+        >
+          <Space wrap={16}>
+            <Space>
               <Input value={count} onChange={(e) => handdleOnchange(e)} />
               <Button>Search value</Button>
-              </Space>
-              <Space className="setColor">
-                <Input className="colorone" />
-                <Button onClick={() => handleClickColor1()}>
-                  Search color
-                </Button>
-              </Space>
-              <Space className="setColor">
-                <Input className="colortwo" />
-                <Button onClick={() => handleClickColor2()}>
-                  Search color
-                </Button>
-              </Space>
-            </Modal>
-          
-       
+            </Space>
+            <Space className="setColor">
+              <Input
+                type="color"
+                style={{ width: "185px" }}
+                className="colorone"
+              />
+              <Button onClick={() => handleClickColor1()}>Search color</Button>
+            </Space>
+            <Space className="setColor">
+              <Input
+                style={{ width: "185px" }}
+                type="color"
+                className="colortwo"
+              />
+              <Button onClick={() => handleClickColor2()}>Search color</Button>
+            </Space>
+          </Space>
+        </Modal>
       </div>
     </>
   );
