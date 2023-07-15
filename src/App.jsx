@@ -143,6 +143,7 @@ const App = () => {
   if ((!token || !token.length) && pathname !== "/login") {
     history.push("/login");
   }
+
   const gotohome = () => {
     history.push("/");
   };
